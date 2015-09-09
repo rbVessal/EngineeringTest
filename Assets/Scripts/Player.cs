@@ -3,8 +3,12 @@ using System.Collections;
 
 public class Player : MonoBehaviour 
 {
-	bool isLoggedIn;
-	Account account;
+	//To be called when player logs in
+	public delegate void LoggedInAction();
+	public static event LoggedInAction LoggedIn;
+
+	static bool isLoggedIn;
+	static Account account;
 
 	// Use this for initialization
 	void Start () 
@@ -13,7 +17,7 @@ public class Player : MonoBehaviour
 	}
 
 	//Setters and getters
-	public bool IsLoggedIn()
+	public static bool IsLoggedIn()
 	{
 		if(account != null)
 		{
@@ -22,15 +26,19 @@ public class Player : MonoBehaviour
 		return false;
 	}
 
-	public void Account(Account newAccount)
+	public static string UserName()
 	{
-		account = newAccount;
-		Debug.Log("account username: " + account.userName);
+		if(account != null)
+		{
+			return account.userName;
+		}
+		return null;
 	}
 
-	// Update is called once per frame
-	void Update () 
+	public static void Account(Account newAccount)
 	{
-	
+		account = newAccount;
+		Player.LoggedIn();
+		Debug.Log("account username: " + account.userName);
 	}
 }

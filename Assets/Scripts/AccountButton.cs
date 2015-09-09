@@ -14,7 +14,6 @@ public class AccountButton : MonoBehaviour
 	void SetPlayerToAccount()
 	{
 		Account account = GetComponent<Account>() as Account;
-		Player player = GameObject.FindWithTag("Player").GetComponent<Player>() as Player;
-		player.Account(account);
+		Player.Account(account);
 	}
 }
