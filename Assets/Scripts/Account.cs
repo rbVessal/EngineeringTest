@@ -5,4 +5,5 @@ public class Account : MonoBehaviour
 {
 	public string userName;
 	bool hasChatHistory;
+	public Sprite userIcon; 
 }

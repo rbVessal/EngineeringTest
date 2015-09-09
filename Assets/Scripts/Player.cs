@@ -10,12 +10,6 @@ public class Player : MonoBehaviour
 	static bool isLoggedIn;
 	static Account account;
 
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-
 	//Setters and getters
 	public static bool IsLoggedIn()
 	{
@@ -31,6 +25,15 @@ public class Player : MonoBehaviour
 		if(account != null)
 		{
 			return account.userName;
+		}
+		return null;
+	}
+
+	public static Sprite Icon()
+	{
+		if(account != null)
+		{
+			return account.userIcon;
 		}
 		return null;
 	}
