@@ -4,41 +4,44 @@ using UnityEngine.UI;
 
 public class ChatBackgroundPanel : MonoBehaviour
 {
-	public delegate void ScaleExpansionCompleteAction();
-	public static event ScaleExpansionCompleteAction ScaleExpansionComplete;
-	public delegate void ScaleShrinkStartAction();
-	public static event ScaleShrinkStartAction ScaleShrinkStart;
+	public delegate void MoveToTopCompleteAction();
+	public static event MoveToTopCompleteAction MoveToTopComplete;
+	public delegate void MoveToOriginalPosStartAction();
+	public static event MoveToOriginalPosStartAction MoveToOriginalPosStart;
 
-	enum ScaleState
+	enum MoveState
 	{
-		Expand,
-		Shrink
+		Top,
+		Original
 	};
-	private Vector2 originalScale;
+	private Vector2 originalPosition;
 	private Image background;
-	private ScaleState scaleState;
+	private Image messageBoxImage;
+	private MoveState moveState;
 
 	// Use this for initialization
 	void Start()
 	{
 		background = GetComponent<Image>();
-		originalScale = background.rectTransform.localScale;
-		scaleState = ScaleState.Shrink;
-		GetComponent<Button>().onClick.AddListener(Scale);
+		originalPosition = background.rectTransform.position;
+		moveState = MoveState.Original;
+		//Scale to fit when moved up to the top
+		ScaleToFit();
+		GetComponent<Button>().onClick.AddListener(Move);
 	}
 
-	void Scale()
+	void Move()
 	{
-		switch(scaleState)
+		switch(moveState)
 		{
-			case ScaleState.Expand:
+			case MoveState.Top:
 			{
-				Shrink();
+				MoveDown();
 				break;
 			}
-			case ScaleState.Shrink:
+			case MoveState.Original:
 			{
-				Expand();
+				MoveUp();
 				break;
 			}
 			default:
@@ -48,34 +51,53 @@ public class ChatBackgroundPanel : MonoBehaviour
 		}
 	}
 
-	void Expand()
+	void ScaleToFit()
 	{
 		//Calculate how much we should scale the chat panel to have it reach the top
 		//of the screen
 		float scaleToTopY = Screen.height/background.rectTransform.rect.size.y;
 		//Calculate the message box segment to subtract from the scale to top
 		//so that the chat panel scales up to the bottom of the message box
-		//31.0f is the height of the message box
-		//TODO: get the height of the message box before it becomes inactive
-		float messageBoxSegment = 1/(background.rectTransform.rect.size.y/31.0f);
+		Image messageBoxImage;
+		FindMessageBoxImage(out messageBoxImage);
+		float messageBoxSegment = 1/(background.rectTransform.rect.size.y/messageBoxImage.rectTransform.rect.size.y);
 		scaleToTopY -= messageBoxSegment;
-		LeanTween.scaleY(this.gameObject, scaleToTopY, 0.2f).setOnComplete(ScaleExpansionCompleted);
-		scaleState = ScaleState.Expand;
+		background.rectTransform.localScale = new Vector2(background.rectTransform.localScale.x,
+		                                                  scaleToTopY);
 	}
 
-	void Shrink()
+	void FindMessageBoxImage(out Image messageBoxImage)
 	{
-		LeanTween.scaleY(this.gameObject, originalScale.y, 0.2f).setOnStart(ScaleShrinkStarted);
-		scaleState = ScaleState.Shrink;
+		GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+		GameObject messageBox = canvas.transform.FindChild("MessageBox").gameObject;
+		messageBoxImage = messageBox.GetComponent<Image>();
 	}
 
-	void ScaleExpansionCompleted()
+	void MoveUp()
 	{
-		ChatBackgroundPanel.ScaleExpansionComplete();
+		Image messageBoxImage;
+		FindMessageBoxImage(out messageBoxImage);
+		LeanTween.moveY(this.gameObject, 
+		                messageBoxImage.rectTransform.position.y - messageBoxImage.rectTransform.rect.size.y,
+		                0.5f).setOnComplete(MoveToTopCompleted);
+		moveState = MoveState.Top;
+	}
+
+	void MoveDown()
+	{
+		LeanTween.moveY(this.gameObject, 
+		                originalPosition.y,
+		                0.5f).setOnStart(MoveToOriginalPosStarted);
+		moveState = MoveState.Original;
+	}
+
+	void MoveToTopCompleted()
+	{
+		ChatBackgroundPanel.MoveToTopComplete();
 	}
 	
-	void ScaleShrinkStarted()
+	void MoveToOriginalPosStarted()
 	{
-		ChatBackgroundPanel.ScaleShrinkStart();
+		ChatBackgroundPanel.MoveToOriginalPosStart();
 	}
 }

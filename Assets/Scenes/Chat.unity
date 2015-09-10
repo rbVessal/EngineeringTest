@@ -485,11 +485,11 @@ RectTransform:
   - {fileID: 1691758326}
   m_Father: {fileID: 514535256}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: .5, y: 1}
+  m_AnchorMax: {x: .5, y: 1}
+  m_AnchoredPosition: {x: -259.5, y: -281}
   m_SizeDelta: {x: 229, y: 107}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: 1}
 --- !u!224 &477744720 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22413734, guid: fb62d8d4061bb4e6c9d4debb249d5d88,
@@ -508,7 +508,7 @@ GameObject:
   - 114: {fileID: 514535257}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1037,11 +1037,11 @@ RectTransform:
   - {fileID: 300404471}
   m_Father: {fileID: 402238801}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 7.62939453e-06, y: 0}
+  m_AnchorMin: {x: .5, y: 1}
+  m_AnchorMax: {x: .5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -.5}
   m_SizeDelta: {x: 229, y: 107}
-  m_Pivot: {x: .5, y: .5}
+  m_Pivot: {x: .5, y: 1}
 --- !u!114 &1691758327
 MonoBehaviour:
   m_ObjectHideFlags: 0
