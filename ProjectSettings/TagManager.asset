@@ -7,6 +7,8 @@ TagManager:
   - ChatPanel
   - ChooseAccountModal
   - Canvas
+  - ChatBackgroundPanel
+  - MessageBox
   layers:
   - Default
   - TransparentFX

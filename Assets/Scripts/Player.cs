@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour 
 {
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
 		return null;
 	}
 
-	public static Sprite Icon()
+	public static Image Icon()
 	{
 		if(account != null)
 		{

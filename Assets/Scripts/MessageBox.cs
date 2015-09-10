@@ -7,8 +7,8 @@ public class MessageBox : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		ChatPanel.ScaleExpansionComplete += ToggleVisibility;
-		ChatPanel.ScaleShrinkStart += ToggleVisibility;
+		ChatBackgroundPanel.ScaleExpansionComplete += ToggleVisibility;
+		ChatBackgroundPanel.ScaleShrinkStart += ToggleVisibility;
 		this.gameObject.SetActive(false);	
 	}
 

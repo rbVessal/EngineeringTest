@@ -1,0 +1,3 @@
+BMONEY,2DTextures/Badge_BMoney
+REYLES,2DTextures/Badge_Reyes
+SAINTKW,2DTextures/Badge_SaintKW
