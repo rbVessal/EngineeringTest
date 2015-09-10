@@ -55,14 +55,12 @@ public class ChatBackgroundPanel : MonoBehaviour
 	{
 		//Calculate how much we should scale the chat panel to have it reach the top
 		//of the screen
-		float scaleToTopY = Screen.height/background.rectTransform.rect.size.y;
 		//Calculate the message box segment to subtract from the scale to top
 		//so that the chat panel scales up to the bottom of the message box
 		Image messageBoxImage;
 		FindMessageBoxImage(out messageBoxImage);
-		float messageBoxSegment = 1/(background.rectTransform.rect.size.y/messageBoxImage.rectTransform.rect.size.y);
-		scaleToTopY -= messageBoxSegment;
-		background.rectTransform.localScale = new Vector2(background.rectTransform.localScale.x,
+		float scaleToTopY = Screen.height - messageBoxImage.rectTransform.rect.size.y;
+		background.rectTransform.sizeDelta = new Vector2(background.rectTransform.rect.size.x,
 		                                                  scaleToTopY);
 	}
 
