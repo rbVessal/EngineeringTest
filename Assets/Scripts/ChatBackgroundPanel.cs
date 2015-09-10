@@ -4,8 +4,12 @@ using UnityEngine.UI;
 
 public class ChatBackgroundPanel : MonoBehaviour
 {
+	public delegate void MoveToTopStartAction();
+	public static event MoveToTopStartAction MoveToTopStart;
+
 	public delegate void MoveToTopCompleteAction();
 	public static event MoveToTopCompleteAction MoveToTopComplete;
+
 	public delegate void MoveToOriginalPosStartAction();
 	public static event MoveToOriginalPosStartAction MoveToOriginalPosStart;
 
@@ -75,18 +79,29 @@ public class ChatBackgroundPanel : MonoBehaviour
 	{
 		Image messageBoxImage;
 		FindMessageBoxImage(out messageBoxImage);
-		LeanTween.moveY(this.gameObject, 
-		                messageBoxImage.rectTransform.position.y - messageBoxImage.rectTransform.rect.size.y,
-		                0.5f).setOnComplete(MoveToTopCompleted);
+
+		LTDescr moveUpTween = LeanTween.moveY(this.gameObject, 
+							  messageBoxImage.rectTransform.position.y - messageBoxImage.rectTransform.rect.size.y,
+                              0.5f);
+		moveUpTween.setOnStart(MoveToTopStarted);
+		moveUpTween.setOnComplete(MoveToTopCompleted);
+
 		moveState = MoveState.Top;
 	}
 
 	void MoveDown()
 	{
-		LeanTween.moveY(this.gameObject, 
-		                originalPosition.y,
-		                0.5f).setOnStart(MoveToOriginalPosStarted);
+		LTDescr moveDownTween = LeanTween.moveY(this.gameObject, 
+				                originalPosition.y,
+                                0.5f);
+		moveDownTween.setOnStart(MoveToOriginalPosStarted);
+
 		moveState = MoveState.Original;
+	}
+	
+	void MoveToTopStarted()
+	{
+		ChatBackgroundPanel.MoveToTopStart();
 	}
 
 	void MoveToTopCompleted()

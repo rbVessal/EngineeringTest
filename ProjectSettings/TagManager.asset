@@ -9,6 +9,7 @@ TagManager:
   - Canvas
   - ChatBackgroundPanel
   - MessageBox
+  - ChatLeftModulePanel
   layers:
   - Default
   - TransparentFX
