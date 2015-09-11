@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userName: REYLES
+  userIcon: {fileID: 0}
 --- !u!114 &11403420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,9 +257,9 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: e4be341d2f4f5487e9b287e4ee85fcfc, type: 3}
     m_FontSize: 14
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -312,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userName: SAINTKW
+  userIcon: {fileID: 0}
 --- !u!114 &11463468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,6 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userName: BMONEY
+  userIcon: {fileID: 0}
 --- !u!114 &11479424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,6 +544,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Text
       value: Choose an Account to Get Started.
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e4be341d2f4f5487e9b287e4ee85fcfc,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_FontData.m_RichText
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
