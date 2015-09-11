@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using ExitGames.Client.Photon.Chat; //Import this inorder to use PhotoChat API
 using UnityEngine.UI;
 
@@ -7,6 +7,9 @@ public class AmericanaChatClient : MonoBehaviour, IChatClientListener
 {
 	public delegate void ReceivedMessageAction(string sender, string message);
 	public static event ReceivedMessageAction ReceivedMessage;
+
+	public delegate void ChatHistoryAction(List<string>senders, List<object>messages);
+	public static event ChatHistoryAction ChatHistory;
 
 	private ChatClient chatClient;
 	const string APP_ID = "34ec6cd9-6860-4767-bcc6-56311304bbda";
@@ -54,7 +57,8 @@ public class AmericanaChatClient : MonoBehaviour, IChatClientListener
 	/// <remarks>Clients have to be connected before they can send their state, subscribe to channels and send any messages.</remarks>
 	public void OnConnected()
 	{
-		chatClient.Subscribe(new string[]{PUBLIC_CHANNEL_NAME});
+		//Pass in -1 as the second parameter to get all of the chat history
+		chatClient.Subscribe(new string[]{PUBLIC_CHANNEL_NAME}, -1);
 	}
 
 	//Debug info from the library
@@ -96,7 +100,9 @@ public class AmericanaChatClient : MonoBehaviour, IChatClientListener
 
 	public void OnSubscribed(string[] channels, bool[] results)
 	{
-
+		ChatChannel publicChatChannel;
+		chatClient.TryGetChannel(PUBLIC_CHANNEL_NAME, out publicChatChannel);
+		AmericanaChatClient.ChatHistory(publicChatChannel.Senders, publicChatChannel.Messages);
 	}
 
 	public void OnUnsubscribed(string[] channels)
