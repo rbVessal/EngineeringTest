@@ -3,7 +3,12 @@ using System.Collections;
 
 public class ChooseAccountModal : MonoBehaviour 
 {
-	void toggleVisibility()
+	void Start()
+	{
+		LeanTween.moveY(this.gameObject, Screen.height/2, 0.7f);
+	}
+
+	void ToggleVisibility()
 	{
 		//Display the group chat history
 		if(Player.IsLoggedIn()
@@ -25,6 +30,6 @@ public class ChooseAccountModal : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		toggleVisibility();
+		ToggleVisibility();
 	}
 }
