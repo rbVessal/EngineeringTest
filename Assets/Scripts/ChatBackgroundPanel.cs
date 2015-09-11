@@ -66,6 +66,11 @@ public class ChatBackgroundPanel : MonoBehaviour
 		float scaleToTopY = Screen.height - messageBoxImage.rectTransform.rect.size.y;
 		background.rectTransform.sizeDelta = new Vector2(background.rectTransform.rect.size.x,
 		                                                  scaleToTopY);
+		//Also set the height of the scroll view to be the same as the chat background panel
+		//so that the content becomes scrollable and fits the size of the chat background panel
+		GameObject scrollViewGameObject = gameObject.transform.FindChild("ScrollView").gameObject;
+		scrollViewGameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollViewGameObject.GetComponent<RectTransform>().sizeDelta.x,
+		                                                                           scaleToTopY);
 	}
 
 	void FindMessageBoxImage(out Image messageBoxImage)
