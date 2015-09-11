@@ -45,6 +45,8 @@ public class ChatPanel : MonoBehaviour
 		badgeIconImage.sprite = badgeIconSprite;
 		Text userName = chatMessagePanelClone.GetComponentInChildren<Text>();
 		userName.text = message;
+		//Set the parent of the message panel to the chat panel that acts as the content panel
+		//for chat
 		chatMessagePanelClone.transform.SetParent(this.transform);
 	}
 }

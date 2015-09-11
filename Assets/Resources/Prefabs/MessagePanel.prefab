@@ -10,6 +10,7 @@ GameObject:
   - 224: {fileID: 22461710}
   - 222: {fileID: 22202710}
   - 114: {fileID: 11455452}
+  - 114: {fileID: 11435242}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -27,7 +28,8 @@ GameObject:
   - 224: {fileID: 22463676}
   - 222: {fileID: 22220064}
   - 114: {fileID: 11491550}
-  - 114: {fileID: 11443788}
+  - 114: {fileID: 11466702}
+  - 114: {fileID: 11412980}
   m_Layer: 5
   m_Name: MessagePanel
   m_TagString: Untagged
@@ -45,6 +47,7 @@ GameObject:
   - 224: {fileID: 22407252}
   - 222: {fileID: 22265298}
   - 114: {fileID: 11446926}
+  - 114: {fileID: 11419408}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -52,7 +55,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &11443788
+--- !u!114 &11412980
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -60,16 +63,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 182010}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: -405508275, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+--- !u!114 &11419408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: 46
+  m_MinWidth: 132.699997
+  m_MinHeight: 33.2999992
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+--- !u!114 &11435242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!114 &11446926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +153,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &11466702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!114 &11491550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,7 +237,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 140, y: 0}
-  m_SizeDelta: {x: 260, y: 86}
+  m_SizeDelta: {x: 260, y: 46}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22463676
 RectTransform:
@@ -207,7 +256,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 347.700012, y: 86}
+  m_SizeDelta: {x: 347.700012, y: 46}
   m_Pivot: {x: .5, y: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -226,7 +275,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_MinHeight
-      value: 46
+      value: 33.2999992
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_AnchorMin.x
@@ -263,11 +312,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SizeDelta.y
-      value: 33.2999992
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_AnchoredPosition.x
       value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_VerticalFit
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ChildForceExpandWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ChildForceExpandHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Spacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_MinWidth
+      value: 132.699997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
