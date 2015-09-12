@@ -63,8 +63,12 @@ public class ChatBackgroundPanel : MonoBehaviour
 		//so that the chat panel scales up to the bottom of the message box
 		Image messageBoxImage;
 		FindMessageBoxImage(out messageBoxImage);
-		float scaleToTopY = Screen.height - messageBoxImage.rectTransform.rect.size.y;
-		background.rectTransform.sizeDelta = new Vector2(background.rectTransform.rect.size.x,
+		//Get the canvas and use its recttransform height to determine the screen height
+		GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+		RectTransform canvasRectTransform = canvas.GetComponent<RectTransform>();
+
+		float scaleToTopY = canvasRectTransform.sizeDelta.y - messageBoxImage.rectTransform.sizeDelta.y;
+		background.rectTransform.sizeDelta = new Vector2(background.rectTransform.sizeDelta.x,
 		                                                  scaleToTopY);
 		//Also set the height of the scroll view to be the same as the chat background panel
 		//so that the content becomes scrollable and fits the size of the chat background panel
@@ -86,7 +90,7 @@ public class ChatBackgroundPanel : MonoBehaviour
 		FindMessageBoxImage(out messageBoxImage);
 
 		LTDescr moveUpTween = LeanTween.moveY(this.gameObject, 
-							  messageBoxImage.rectTransform.position.y - messageBoxImage.rectTransform.rect.size.y,
+							  messageBoxImage.rectTransform.position.y + messageBoxImage.rectTransform.sizeDelta.y,
                               0.5f);
 		moveUpTween.setOnStart(MoveToTopStarted);
 		moveUpTween.setOnComplete(MoveToTopCompleted);
