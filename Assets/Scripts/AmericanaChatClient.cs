@@ -19,11 +19,17 @@ public class AmericanaChatClient : MonoBehaviour, IChatClientListener
 	{
 		chatClient = new ChatClient(this);
 		Player.LoggedIn += ConnectPlayer;
+		MessageBox.SubmitedTextEvent += ChatMessageSubmitted;
 	}
 
 	void ConnectPlayer()
 	{
 		chatClient.Connect(APP_ID, "1.0", new AuthenticationValues(Player.UserName()));
+	}
+
+	void ChatMessageSubmitted(string chatMessageSubmitted)
+	{
+		chatClient.PublishMessage(PUBLIC_CHANNEL_NAME, chatMessageSubmitted);
 	}
 	
 	// Update is called once per frame
@@ -33,19 +39,6 @@ public class AmericanaChatClient : MonoBehaviour, IChatClientListener
 		{
 			//Call this to keep the connection alive and get incoming messages
 			chatClient.Service();
-		}
-
-		//If the player has hit the return or enter key,
-		//then grab the text from the text field and display it in the chat
-		if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
-		{
-			GameObject messageBox = GameObject.FindGameObjectWithTag("MessageBox");
-			if(messageBox)
-			{
-				InputField messageInputField = messageBox.GetComponent<InputField>() as InputField;
-				chatClient.PublishMessage(PUBLIC_CHANNEL_NAME, messageInputField.text);
-				messageInputField.text = "";
-			}
 		}
 	}
 
@@ -64,7 +57,7 @@ public class AmericanaChatClient : MonoBehaviour, IChatClientListener
 	//Debug info from the library
 	public void DebugReturn(ExitGames.Client.Photon.DebugLevel level, string message)
 	{
-
+		Debug.Log ("debug info from PhotonChat library: " + message);
 	}
 
 	public void OnDisconnected()
