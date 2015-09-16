@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MessageBox : MonoBehaviour 
 {
@@ -28,20 +29,30 @@ public class MessageBox : MonoBehaviour
 	void SubmittedText(string text)
 	{
 		InputField inputField = GetComponent<InputField>();
+
+		if(!inputField.wasCanceled)
+		{
+			MessageBox.SubmitedTextEvent(text);
+			inputField.text = "";
+		}
 		//Hack:apparently this allows for pressing done or return
 		//to work properly on iPhone and iPad
-//		if(!Input.anyKeyDown)
+//		if()
 //		{
 //			MessageBox.SubmitedTextEvent(text);
 //			inputField.text = "";
 //		}
 		//For desktop debugging purposes
-		if(!Input.GetMouseButtonDown(0)
-		   || !Input.GetMouseButtonDown(1))
-		{
-			MessageBox.SubmitedTextEvent(text);
-			inputField.text = "";
-		}
+#if UNITY_EDITOR
+//		if(!Input.GetMouseButtonDown(0)
+//		   || !Input.GetMouseButtonDown(1))
+//		{
+//			MessageBox.SubmitedTextEvent(text);
+//			inputField.text = "";
+//		}
+#elif
+
+#endif
 	}
 
 	public void Selected()

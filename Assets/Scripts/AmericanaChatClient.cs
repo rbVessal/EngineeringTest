@@ -51,13 +51,15 @@ public class AmericanaChatClient : MonoBehaviour, IChatClientListener
 	public void OnConnected()
 	{
 		//Pass in -1 as the second parameter to get all of the chat history
+		//Note:  chat history will only be present as long as there is one person
+		//in the channel
 		chatClient.Subscribe(new string[]{PUBLIC_CHANNEL_NAME}, -1);
 	}
 
 	//Debug info from the library
 	public void DebugReturn(ExitGames.Client.Photon.DebugLevel level, string message)
 	{
-		Debug.Log ("debug info from PhotonChat library: " + message);
+//		Debug.Log ("debug info from PhotonChat library: " + message);
 	}
 
 	public void OnDisconnected()

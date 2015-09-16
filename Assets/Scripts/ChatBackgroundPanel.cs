@@ -13,6 +13,8 @@ public class ChatBackgroundPanel : MonoBehaviour
 	public delegate void MoveToOriginalPosStartAction();
 	public static event MoveToOriginalPosStartAction MoveToOriginalPosStart;
 
+	const float TOP_SPACING = 10.0f;
+
 	enum MoveState
 	{
 		Top,
@@ -90,7 +92,7 @@ public class ChatBackgroundPanel : MonoBehaviour
 		FindMessageBoxImage(out messageBoxImage);
 
 		LTDescr moveUpTween = LeanTween.moveY(this.gameObject, 
-							  messageBoxImage.rectTransform.position.y + messageBoxImage.rectTransform.sizeDelta.y,
+							  messageBoxImage.rectTransform.position.y - (messageBoxImage.rectTransform.sizeDelta.y * 2.0f),
                               0.5f);
 		moveUpTween.setOnStart(MoveToTopStarted);
 		moveUpTween.setOnComplete(MoveToTopCompleted);
