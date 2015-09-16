@@ -69,8 +69,8 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: 75
   m_MinHeight: 18
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
+  m_PreferredWidth: 75
+  m_PreferredHeight: 18
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
 --- !u!114 &11437976
@@ -340,7 +340,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_MinWidth
-      value: 132.699997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_PreserveAspect
@@ -377,6 +377,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_FlexibleHeight
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PreferredWidth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PreferredHeight
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
