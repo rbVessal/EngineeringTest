@@ -7,7 +7,15 @@ public class ChooseAccountModal : MonoBehaviour
 	{
 		GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
 		RectTransform canvasRectTransform = canvas.GetComponent<RectTransform>();
-		LeanTween.moveY(this.gameObject, canvasRectTransform.sizeDelta.y/2, 0.7f);
+#if UNITY_EDITOR
+		LeanTween.moveY(this.gameObject, 
+		                canvasRectTransform.sizeDelta.y/2, 
+		                0.7f);
+#elif
+		LeanTween.moveY(this.gameObject, 
+		                (canvasRectTransform.sizeDelta.y/2) + (this.GetComponent<RectTransform>().sizeDelta.y), 
+		                0.7f);
+#endif
 	}
 
 	void ToggleVisibility()
