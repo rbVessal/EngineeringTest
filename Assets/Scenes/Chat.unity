@@ -308,11 +308,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1691758326}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: 1}
-  m_AnchorMax: {x: .5, y: 1}
-  m_AnchoredPosition: {x: .000595092773, y: 2.28881836e-05}
-  m_SizeDelta: {x: 256, y: 0}
-  m_Pivot: {x: .49999997, y: 1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 4.19999981, y: 2.28881836e-05}
+  m_SizeDelta: {x: 260, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &300404472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,11 +480,11 @@ RectTransform:
   - {fileID: 1691758326}
   m_Father: {fileID: 514535256}
   m_RootOrder: 2
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: .413000017, y: 0}
-  m_AnchoredPosition: {x: 7.62939453e-06, y: 127.619995}
-  m_SizeDelta: {x: .770004272, y: 127}
-  m_Pivot: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: .226873562}
+  m_AnchorMax: {x: 0, y: .226873562}
+  m_AnchoredPosition: {x: -.770080566, y: 1}
+  m_SizeDelta: {x: 260, y: 80}
+  m_Pivot: {x: 0, y: 1}
 --- !u!224 &477744720 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22413734, guid: fb62d8d4061bb4e6c9d4debb249d5d88,
@@ -761,8 +761,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.90734863e-06}
-  m_SizeDelta: {x: 0, y: 4.70000076}
+  m_AnchoredPosition: {x: -2.29999995, y: 2.29999995}
+  m_SizeDelta: {x: 4.0999999, y: 4.30000019}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &918492422
 MonoBehaviour:
@@ -899,10 +899,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 514535256}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: .405000031, y: .909265399}
-  m_AnchoredPosition: {x: -312.769989, y: 13.5780001}
-  m_SizeDelta: {x: 81, y: 35.9959984}
+  m_AnchorMin: {x: 0, y: .5}
+  m_AnchorMax: {x: 0, y: .5}
+  m_AnchoredPosition: {x: -323.770081, y: -1.99998283}
+  m_SizeDelta: {x: 323, y: 352}
   m_Pivot: {x: 0, y: .5}
 --- !u!114 &1041974175
 MonoBehaviour:
@@ -1061,11 +1061,11 @@ RectTransform:
   - {fileID: 1195515386}
   m_Father: {fileID: 514535256}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0, y: .909265399}
-  m_AnchorMax: {x: .405000031, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2.00001526}
-  m_SizeDelta: {x: 2, y: -2}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 1.52587891e-05}
+  m_SizeDelta: {x: 251, y: 30}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1689589990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,11 +1083,11 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_PressedColor: {r: .0220588446, g: .0225454364, b: .0225454364, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
@@ -1123,9 +1123,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
+  m_SelectionColor: {r: .856725752, g: .848649442, b: .838235259, a: .752941191}
   m_Text: 
-  m_CaretBlinkRate: .850000024
+  m_CaretBlinkRate: 1.15999997
 --- !u!114 &1689589991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,10 +1250,10 @@ RectTransform:
   m_Father: {fileID: 402238801}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -7.62939453e-06, y: 3.05175781e-05}
-  m_SizeDelta: {x: 0, y: 127}
-  m_Pivot: {x: 1, y: 1}
+  m_SizeDelta: {x: 260, y: 80}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1691758327
 MonoBehaviour:
   m_ObjectHideFlags: 0
