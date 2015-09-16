@@ -12,9 +12,7 @@ public class ChatBackgroundPanel : MonoBehaviour
 
 	public delegate void MoveToOriginalPosStartAction();
 	public static event MoveToOriginalPosStartAction MoveToOriginalPosStart;
-
-	const float TOP_SPACING = 10.0f;
-
+	
 	enum MoveState
 	{
 		Top,
@@ -31,7 +29,7 @@ public class ChatBackgroundPanel : MonoBehaviour
 		background = GetComponent<Image>();
 		originalPosition = background.rectTransform.position;
 		moveState = MoveState.Original;
-		//Scale to fit when moved up to the top
+		//Scale to fit to be ready when moved up to the top
 		ScaleToFit();
 		GetComponent<Button>().onClick.AddListener(Move);
 	}

@@ -39,10 +39,9 @@ public class Player : MonoBehaviour
 		return null;
 	}
 
-	public static void Account(Account newAccount)
+	public static void SetAccount(Account newAccount)
 	{
 		account = newAccount;
 		Player.LoggedIn();
-		Debug.Log("account username: " + account.userName);
 	}
 }

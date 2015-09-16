@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class MessageBox : MonoBehaviour 
 {
@@ -33,7 +32,7 @@ public class MessageBox : MonoBehaviour
 		//Don't allow for clicking away from the keyboard
 		//to send text
 		//Text should be sent only when pressing the return key
-		if(!Input.GetMouseButton[0])
+		if(!Input.GetMouseButton(0))
 		{
 			MessageBox.SubmitedTextEvent(text);
 			inputField.text = "";

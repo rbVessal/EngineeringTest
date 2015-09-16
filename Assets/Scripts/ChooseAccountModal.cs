@@ -10,6 +10,7 @@ public class ChooseAccountModal : MonoBehaviour
 		LeanTween.moveY(this.gameObject, 
 		                (canvasRectTransform.sizeDelta.y/2) + (this.GetComponent<RectTransform>().sizeDelta.y), 
 		                0.7f);
+		Player.LoggedIn += ToggleVisibility;
 	}
 
 	void ToggleVisibility()
@@ -29,11 +30,5 @@ public class ChooseAccountModal : MonoBehaviour
 				this.gameObject.SetActive(true);
 			}
 		}
-	}
-
-	// Update is called once per frame
-	void Update () 
-	{
-		ToggleVisibility();
 	}
 }

@@ -15,6 +15,6 @@ public class AccountButton : MonoBehaviour
 	{
 		Account account = GetComponent<Account>() as Account;
 		account.userIcon = GetComponent<Image>();
-		Player.Account(account);
+		Player.SetAccount(account);
 	}
 }
