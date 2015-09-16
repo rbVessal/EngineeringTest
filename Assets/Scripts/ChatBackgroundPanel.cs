@@ -32,6 +32,21 @@ public class ChatBackgroundPanel : MonoBehaviour
 		//Scale to fit to be ready when moved up to the top
 		ScaleToFit();
 		GetComponent<Button>().onClick.AddListener(Move);
+		ToggleInteractivity();
+		Player.LoggedIn += ToggleInteractivity;
+	}
+
+	void ToggleInteractivity()
+	{
+		Button button = GetComponent<Button>();
+		if(button.interactable)
+		{
+			button.interactable = false;
+		}
+		else
+		{
+			button.interactable = true;
+		}
 	}
 
 	void Move()
