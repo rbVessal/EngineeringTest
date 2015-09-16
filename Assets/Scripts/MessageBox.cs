@@ -30,7 +30,14 @@ public class MessageBox : MonoBehaviour
 		InputField inputField = GetComponent<InputField>();
 		//Hack:apparently this allows for pressing done or return
 		//to work properly on iPhone and iPad
-		if(!Input.anyKeyDown)
+//		if(!Input.anyKeyDown)
+//		{
+//			MessageBox.SubmitedTextEvent(text);
+//			inputField.text = "";
+//		}
+		//For desktop debugging purposes
+		if(!Input.GetMouseButtonDown(0)
+		   || !Input.GetMouseButtonDown(1))
 		{
 			MessageBox.SubmitedTextEvent(text);
 			inputField.text = "";

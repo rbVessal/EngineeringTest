@@ -31,22 +31,12 @@ public class ChatPanel : MonoBehaviour
 	void CreateMessagePanel(string sender, string message)
 	{
 		GameObject chatMessagePanelClone = Instantiate(chatMessagePanel) as GameObject;
-		Image[] images = chatMessagePanelClone.transform.GetComponentsInChildren<Image>();
-		Image badgeIconImage = images[0];
-		foreach(Image image in images)
-		{
-			if(image.transform.parent == chatMessagePanelClone.transform)
-			{
-				badgeIconImage = image;
-			}
-		}
-		Sprite badgeIconSprite;
-		AccountDatabase.GetAccountImageBasedOnUserName(ref sender, out badgeIconSprite);
-		badgeIconImage.sprite = badgeIconSprite;
-		Text userName = chatMessagePanelClone.GetComponentInChildren<Text>();
-		userName.text = message;
 		//Set the parent of the message panel to the chat panel that acts as the content panel
 		//for chat
-		chatMessagePanelClone.transform.SetParent(this.transform, false);
+		chatMessagePanelClone.transform.SetParent(this.gameObject.transform, false);
+		MessagePanel messagePanel = chatMessagePanelClone.GetComponent<MessagePanel>();
+		messagePanel.SetupWithSenderAndText(sender, message);
+
+
 	}
 }
