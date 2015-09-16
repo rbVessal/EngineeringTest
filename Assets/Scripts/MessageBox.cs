@@ -30,29 +30,14 @@ public class MessageBox : MonoBehaviour
 	{
 		InputField inputField = GetComponent<InputField>();
 
-		if(!inputField.wasCanceled)
+		//Don't allow for clicking away from the keyboard
+		//to send text
+		//Text should be sent only when pressing the return key
+		if(!Input.GetMouseButton[0])
 		{
 			MessageBox.SubmitedTextEvent(text);
 			inputField.text = "";
 		}
-		//Hack:apparently this allows for pressing done or return
-		//to work properly on iPhone and iPad
-//		if()
-//		{
-//			MessageBox.SubmitedTextEvent(text);
-//			inputField.text = "";
-//		}
-		//For desktop debugging purposes
-#if UNITY_EDITOR
-//		if(!Input.GetMouseButtonDown(0)
-//		   || !Input.GetMouseButtonDown(1))
-//		{
-//			MessageBox.SubmitedTextEvent(text);
-//			inputField.text = "";
-//		}
-#elif
-
-#endif
 	}
 
 	public void Selected()
